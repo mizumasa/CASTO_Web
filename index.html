@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:url" content="https://casto.me">
+    <meta property="og:title" content="CASTO | アートを味方にまだないモノをつくるクリエイティブ・コミュニティ">
+    <meta property="og:description" content="１人１人がもつ創造力と物語を見つめ、アートとビジネスの混じり合う新しい形を追求する集団です。アートの視点を通して新しい価値を世の中に届けるべく、個人・チームでの作品制作や、イベント開催、リサーチなどの活動を行っています。">
+    <meta property="og:image" content="https://casto.me/og_image.png">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v6.2.0/css/all.css" rel="stylesheet">
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <link href="reset.css" rel="stylesheet">
+    <title>CASTO | アートを味方にまだないモノをつくるクリエイティブ・コミュニティ</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        html,
+        body {
+            font-family: "Noto Sans JP";
+            width: 100%;
+            height: 100%;
+            font-size: 16px;
+            line-height: 1.75;
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            transition: all .5s;
+        }
+ 
+        .pictures {
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
+            margin-bottom: 3rem;
+        }
+
+        .pictures .grid {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            background-color: #fff;
+        }
+
+        .pictures .logo {
+            position: absolute;
+            width: auto !important;
+            height: 100% !important;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: 0 auto;
+            z-index: 10;
+            filter: invert(100%);
+            opacity: 0;
+            background-color: transparent;
+            box-sizing: content-box;
+            transition: none !important;
+            object-fit: contain;
+        }
+
+        @media screen and (max-width: 900px) {
+            .pictures .logo  {
+                width: 100% !important;
+                height: auto !important;
+                box-sizing: border-box;
+                margin: auto;
+            }
+        }
+
+        .pictures img {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: all 1s linear;
+            object-fit: cover;
+            opacity: 0;
+        }
+
+        .contents {
+            padding: 80px 0 0;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            font-size: 1.5rem;
+        }
+
+        @media screen and (max-width: 1200px) {
+            .contents {
+                padding: 0 20px;
+                overflow-y: hidden;
+            }
+        }
+
+        .contents h2 {
+            font-size: 2rem;
+        }
+
+        .contents .content.twocolumn h2 {
+            position: absolute;
+        }
+ 
+        .contents .subtitle {
+            font-size: 5.25rem;
+            font-style: italic;
+            color: #AEAEAE;
+            margin: 3.5rem 0;
+        }
+                    
+        .contents .subtitle2 {
+            font-size: 4rem;
+            color: #000;
+            margin: 3.5rem 0;
+            line-height: 1.35;
+        }
+
+        .contents .content.aboutus p.message {
+            line-height: 2.5;
+            font-size: 1.5rem;
+        }
+
+        @media screen and (max-width: 900px) {
+            .contents .subtitle {
+                font-size: 2rem;
+                margin: 2rem 0;
+            }
+
+            .contents .subtitle2 {
+                font-size: 2rem;
+            }
+
+            .contents .content.aboutus p.message {
+                font-size: 1rem;
+            }
+
+            .contents .content.twocolumn h2 {
+                position: relative;
+                margin-bottom: 4rem;
+            }
+        }
+
+        .contents .content {
+            margin: 5rem 0 12rem;
+        }
+
+        .contents .content.last {
+            margin: 5rem 0 0;
+        }
+
+        .black-screen {
+            opacity: 0.5;
+            background-color: #fff;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: all 1s;
+        }
+
+        .menu {
+            position: fixed;
+            top: 2rem;
+            right: 4rem;
+            z-index: 30;
+        }
+
+        .menu a {
+            color: #fff;
+            margin-right: 40px;
+            text-decoration: none;
+        }
+
+        .stickylogo {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            width: 150px;
+            filter: invert(1);
+        }
+
+        .scroll-arrow {
+            position: absolute;
+            bottom: 10px;
+            left: calc( 50.5% - 50px );
+            font-size: 1.5rem;
+            z-index: 10;
+            color: #fff;
+            text-align: center;
+            transition: all 5s;
+            opacity: 0;
+            width: 100px;
+        }
+        
+        @media screen and (max-width: 900px) {
+            .menu {
+                display: none;
+            }
+
+            .stickylogo {
+                display: none;
+            }
+
+            .scroll-arrow {
+                left: calc( 50% - 50px );
+            }
+        }
+
+        .members {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 5rem;
+            row-gap: 10rem;
+            width: 100%;
+            padding-left: 25%;
+            padding-bottom: 5rem;
+        }
+
+        .members .card {
+            height: 0;
+            padding-bottom: 100%;
+            position: relative;
+        }
+
+        .members .card.communicator {
+            padding-bottom: 0;
+        }
+
+        .members .card img {
+            width: 100%;
+            opacity: 1;
+        }
+
+        .members .card a {
+            text-decoration: none;
+        }
+
+        .members .card a:hover {
+            opacity: 0.7;
+        }
+
+        .members .card p.phrase {
+            padding-top: 33%;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-weight: bold;
+        }
+
+
+        @media screen and (max-width: 900px) {
+            .members .card p.phrase {
+                font-size: 1rem;
+            }
+        }
+
+        .members .card div {
+            position: relative;
+            margin-top: 0.5rem;
+        }
+
+        .members .card div p:nth-child(1) {
+            font-size: 1.5rem;
+            width: 90%;
+        }
+
+        .members .card div p:nth-child(2) {
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 1.5rem;
+        }
+
+        @media screen and (max-width: 900px) {
+            .members {
+                gap: 1rem;
+                row-gap: 6rem;
+                padding-left: 0;
+            }
+
+            .members .card div p:nth-child(1) {
+                font-size: 1rem;
+            }
+
+            .members .card div p:nth-child(2) {
+                font-size: 1rem;
+            }
+        }
+
+        .pickup .article {
+            position: relative;
+            height: 150px;
+        }
+
+        .pickup .article a {
+            text-decoration: none;
+            color: #333;
+            transition: all 0.2s;
+        }
+
+        .pickup .article a:hover {
+            opacity: 0.7;
+        }
+
+        .pickup .article img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+        }
+
+        .pickup .article p {
+            margin: 0;
+            padding: 0 0 40px 220px;
+            font-size: 0.8em;
+        }
+
+        .sns-icon {
+            display: inline;
+            padding-left: 4rem !important;
+        }
+
+        .sns-icon img {
+            width: 50px !important;
+            position: relative !important;
+            display: inline;
+            margin-right: 2rem;
+        }
+
+        .contact {
+            width: 100%;
+            background-color: #000;
+            color: #fff;
+            margin-left: calc(50% - 50vw);
+        }
+
+        .contact div {
+            padding: 5rem 0 5rem 4rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact h2 {
+            display: inline-block;
+        }
+
+        .contact img {
+            width: 260px;
+        }
+
+        .contact div p {
+            display: inline;
+            font-size: 1.5rem;
+            padding-left: 4rem;
+        }
+
+        @media screen and (max-width: 900px) {
+            .contact div {
+                padding: 2rem 0;
+            }
+
+            .contact div img {
+                width: 100px;
+                padding-left: 1rem;
+            }
+
+            .contact div p {
+                font-size: 1rem;
+                padding-left: 1rem;
+            }
+
+            .sns-icon {
+                padding-left: 0 !important;
+            }
+        }
+
+        .pc-br {
+            display: inline;
+        }
+
+        @media screen and (max-width: 900px) {
+            .pc-br {
+                display: none;
+            }
+        }
+
+        .pictures .video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 20;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: 100%;
+            transition: all 1s;
+        }
+
+        .pictures .video video {
+            width: auto;
+            height: 100%;
+            margin: 0 auto;
+        }
+
+        .footer {
+            width: 100%;
+        }
+    </style>
+
+    <link as="image" rel="preload" href="images/CASTO_logo_white.png">
+    <link as="image" rel="preload" href="images/satoh_nightshow.jpg">
+    <link as="image" rel="preload" href="images/Kamiya_Kuukan.jpg">
+    <link as="image" rel="preload" href="images/Kamiya_moire_in_relation.jpg">
+    <link as="image" rel="preload" href="images/Kamiya_whitebalance.jpg">
+    <link as="image" rel="preload" href="images/mizuochi_coral.jpg">
+    <link as="image" rel="preload" href="images/mizuochi_JustBeDiverse.jpg">
+    <link as="image" rel="preload" href="images/mizuochi_mem.jpg">
+    <link as="image" rel="preload" href="images/mizuochi_zoe.jpg">
+    <link as="image" rel="preload" href="images/satoh_expodubai.jpg">
+    <link as="image" rel="preload" href="images/satoh_hk_disney_frozen.jpeg">
+
+</head>
+
+<body>
+
+    <div class="stickylogo">
+        <img src="images/CASTO_logo_white_s.svg" alt="CASTO">
+    </div>
+    <div class="menu">
+        <a href="#aboutus">About us</a>
+        <a href="#members">Members</a>
+        <a href="#pickup">Pickup</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <div class="pictures">
+        <div class="video">
+            <video src="CASTO_LOGOmotion_forWEB_20241016.mp4" muted autoplay disablePictureInPicture></video>
+        </div>
+        <div class="grid">
+            <img class="logo" src="images/CASTO_logo_white.png" alt="">
+            <img class="grid-item" src="images/satoh/nightshow.jpg" alt="">
+            <img class="grid-item" src="images/kamiya/Kuukan.jpg" alt="">
+            <img class="grid-item" src="images/kamiya/moire_in_relation.jpg" alt="">
+            <img class="grid-item" src="images/kamiya/whitebalance.jpg" alt="">
+            <img class="grid-item" src="images/mizuochi/coral.jpg" alt="">
+            <img class="grid-item" src="images/mizuochi/JustBeDiverse.jpg" alt="">
+            <img class="grid-item" src="images/mizuochi/mem.jpg" alt="">
+            <img class="grid-item" src="images/mizuochi/zoe.jpg" alt="">
+            <img class="grid-item" src="images/satoh/expodubai.jpg" alt="">
+            <img class="grid-item" src="images/satoh/hk_disney_frozen.jpeg" alt="">
+            <img class="grid-item" src="images/satoh/nightshow.jpg" alt="">
+            <img class="grid-item" src="images/kamiya/Kuukan.jpg" alt="">
+            <img class="grid-item" src="images/kamiya/moire_in_relation.jpg" alt="">
+            <img class="grid-item" src="images/kamiya/whitebalance.jpg" alt="">
+            <img class="grid-item" src="images/mizuochi/coral.jpg" alt="">
+            <img class="grid-item" src="images/mizuochi/JustBeDiverse.jpg" alt="">
+            <img class="grid-item" src="images/mizuochi/mem.jpg" alt="">
+            <img class="grid-item" src="images/mizuochi/zoe.jpg" alt="">
+            <img class="grid-item" src="images/satoh/expodubai.jpg" alt="">
+            <img class="grid-item" src="images/satoh/hk_disney_frozen.jpeg" alt="">
+            <div class="black-screen"></div>
+            <div class="scroll-arrow">
+                <p>scroll<br>↓</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="contents">
+        <div class="content aboutus">
+            <h2 id="aboutus" class="scrollreveal">
+                About us
+            </h2>
+            <p class="subtitle scrollreveal-left">
+                Creative and Story
+            </p>
+            <p class="subtitle2 scrollreveal-right">
+                アートを味方にまだないモノをつくる<br class="pc-br">
+                クリエイティブ・コミュニティ
+            </p>
+            <p class="message scrollreveal">
+                １人１人がもつ創造力と物語を見つめ、アートとビジネスの混じり合う新しい形を追求する集団です。<br class="pc-br">
+                アートの視点を通して新しい価値を世の中に届けるべく、<br class="pc-br">
+                個人・チームでの作品制作や、イベント開催、リサーチなどの活動を行っています。
+            </p>
+        </div>
+
+        <div class="content twocolumn scrollreveal-bottom">
+            <h2 id="members">
+                Members
+            </h2>
+            <div class="members">
+                <div class="card">
+                    <a href="members.html?m=1">
+                        <img src="images//mizuochi/member.jpg" alt="">
+                        <div>
+                            <p>Masaru Mizuochi</p>
+                            <p><i class="fa-solid fa-chevron-right"></i></p>
+                        </div>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="members.html?m=2">
+                        <img src="images/kamiya/member.jpg" alt="">
+                        <div>
+                            <p>Taishi Kamiya</p>
+                            <p><i class="fa-solid fa-chevron-right"></i></p>
+                        </div>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="members.html?m=3">
+                        <img src="images/inoue/member.jpg" alt="">
+                        <div>
+                            <p>Chisato Inoue</p>
+                            <p><i class="fa-solid fa-chevron-right"></i></p>
+                        </div>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="members.html?m=4">
+                        <img src="images/kurahashi/member.jpg" alt="">
+                        <div>
+                            <p>Masaya Kurahashi</p>
+                            <p><i class="fa-solid fa-chevron-right"></i></p>
+                        </div>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="members.html?m=5">
+                        <img src="images/satoh/member.png" alt="">
+                        <!--
+                        <p class="phrase">
+                            テーマパーク<br>
+                            ✖<br>
+                            建築の化学変化
+                        </p>
+                        -->
+                        <div>
+                            <p>Tetsuya Satoh</p>
+                            <p><i class="fa-solid fa-chevron-right"></i></p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card">
+                    <br>
+                </div>
+                <div class="card communicator">
+                    <a href="members.html?m=5">
+                        <div>
+                            <p>Machiko Segawa</p>
+                            <p><i class="fa-solid fa-chevron-right"></i></p>
+                        </div>
+                    </a>
+                </div>
+                <div class="card communicator">
+                    <a href="members.html?m=6">
+                        <div>
+                            <p>Masumi Kawano</p>
+                            <p><i class="fa-solid fa-chevron-right"></i></p>
+                        </div>
+                    </a>
+                </div>
+                <div class="card communicator">
+                    <a href="members.html?m=7">
+                        <div>
+                            <p>Erina Gomi</p>
+                            <p><i class="fa-solid fa-chevron-right"></i></p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="content twocolumn scrollreveal-bottom">
+            <h2 id="pickup">
+                Pickup
+            </h2>
+            <div class="members">
+                <div class="card">
+                    <a href="https://note.com/casto/n/nbd257c03d1b7" target="_blank">
+                        <img src="https://assets.st-note.com/production/uploads/images/149608417/rectangle_large_type_2_e676d0e348c2617c7ed63dba9fe31a4a.png?width=1200" alt="">
+                        <div>
+                            <p>アートを味方に、まだないモノをつくる</p>
+                            <p><i class="fa-solid fa-chevron-right"></i></p>
+                        </div>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="https://note.com/casto/n/ndb510a9b63f3" target="_blank">
+                        <img src="https://assets.st-note.com/production/uploads/images/151696295/rectangle_large_type_2_6a53af5e234d8aef195a17c3b402d603.jpeg?width=1200" alt="">
+                        <div>
+                            <p>CASTOナイト vol.2 を開催しました(2024.8)</p>
+                            <p><i class="fa-solid fa-chevron-right"></i></p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="contact">
+            <div>
+                <h2 id="contact">
+                    <img src="images/CASTO_logo_white.svg" alt="CASTO">
+                </h2>
+                <p>
+                    <a href="">お問い合わせ</a>
+                </p>
+                <div class="sns-icon">
+                    <!--<a href="" target="_blank"><img src="images/Facebook_Logo_Primary.png" alt=""></a>-->
+                    <a href="https://note.com/casto" target="_blank"><img src="images/note_icon.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('scroll', function(){
+            let menuItem = document.querySelector(".menu");
+            if(window.scrollY > window.innerHeight){
+                menuItem.style.filter = 'invert(1)';
+            }
+            else{
+                menuItem.style.filter = 'invert(0)';
+            }
+        });
+
+        function logoAnimation(){
+            let logoItem = document.querySelector(".logo");
+            setTimeout(function () {
+                let gridItem = document.querySelector(".grid-item");
+                setTimeout(function () {
+                    // slash
+                    // gridItem.style.clipPath = 'polygon(0px 63%, 100% 31%, 100% 34%, 0px 66%)';
+                    // gridItem.style.opacity = 1
+
+                    setTimeout(function () {
+                        // open slash
+                        // gridItem.style.clipPath = 'polygon(0 0%, 100% 0, 100% 100%, 0 100%)';
+
+                        // logoItem.style.left = 'calc(50% - 550px)'
+                        // let logoDesc = document.querySelector(".logo-desc");
+                        // logoDesc.style.opacity = 1;
+
+                        setTimeout(function () {
+                            let scrollItem = document.querySelector('.scroll-arrow');
+                            scrollItem.style.opacity = 1;
+
+                            let pictureImage = document.querySelector(".pictures img")
+                            let blackScreen = document.querySelector(".black-screen");
+                            blackScreen.style.backgroundColor = '#000'
+                            logoItem.style.filter = 'invert(0)';
+                            // logoItem.style.backgroundColor = '#000'
+
+                            let i = 1;
+                            let images = document.querySelectorAll(".grid-item");
+                            for (let element of images) {
+                                setTimeout(function () {
+                                    element.style.opacity = 1;
+                                }, 100 * i);
+                                i++;
+                            }
+
+                            setInterval(function () {
+                                let images = document.querySelectorAll(".grid-item");
+                                let slash_width = 100 / images.length;
+                                let slash_delta = 28;
+                                let y;
+                                let oldy;
+                                for (let element of images) {
+                                    oldy = y;
+                                    y = Math.floor(Math.random() * 100);
+                                    element.style.clipPath = 'polygon(0 ' + oldy + '%, 100% ' + (oldy - slash_delta) + '%, 100% ' + (y - slash_delta + slash_width) + '%, 0 ' + (y + slash_width) + '%)';
+                                }
+                            }, 1000);
+
+                        }, 500);
+
+                    }, 10);
+
+                }, 10);
+
+            }, 10);
+        }
+
+        // VIDEO event
+        document.querySelector('video').addEventListener('ended', function(event) {
+            const logoItem = document.querySelector(".logo");
+            logoItem.style.opacity = 1;
+
+            const video = document.querySelector('.video'); 
+            video.style.opacity = 0;
+            setTimeout( function(){
+                // video.remove();
+            }, 1000);
+
+            logoAnimation();
+        });
+
+        // Scroll Reveal
+        ScrollReveal().reveal('.scrollreveal', {
+            delay: 300,
+            duration: 2000
+        });
+
+       ScrollReveal().reveal('.scrollreveal-left', {
+            delay: 300,
+            duration: 2000,
+            origin: "left",
+            distance: '100px',
+        });
+
+        ScrollReveal().reveal('.scrollreveal-right', {
+            delay: 300,
+            duration: 2000,
+            origin: "right",
+            distance: '100px',
+        });
+
+        ScrollReveal().reveal('.scrollreveal-bottom', {
+            delay: 300,
+            duration: 2000,
+            origin: "bottom",
+            distance: '100px',
+        });
+
+        // for page transition
+        window.addEventListener('beforeunload', function (e) {
+            const body = document.querySelector("body");
+            body.style.opacity = 0;
+            body.style.opacity = 1;
+        });
+    </script>
+</body>
+
+</html>

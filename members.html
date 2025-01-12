@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CASTO | メンバー紹介</title>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <link href="https://use.fontawesome.com/releases/v6.2.0/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/luminous-lightbox@2.4.0/dist/luminous-basic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/luminous-lightbox@2.4.0/dist/luminous.min.js"></script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        html, body {
+            font-family: "Noto Sans JP";
+            font-size: 16px;
+            line-height: 1.75;
+        }
+
+        body {
+            transition: all 2s;
+            opacity: 0;
+            overflow-x: hidden;
+        }
+
+        .main {
+            padding-top: 10rem;
+        }
+
+        .stickylogo {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            width: 150px;
+            filter: invert(1);
+        }
+
+        .stickylogo img {
+            width: 100%;
+        }
+
+        @media screen and (max-width: 900px) {
+            .main {
+                padding-top: 5rem;
+            }
+
+            .stickylogo {
+                position: fixed;
+                top: 2rem;
+                left: 0;
+                width: 100%;
+                filter: invert(1);
+                text-align: center;
+            }
+
+            .stickylogo img {
+                width: 100px;
+            }
+        }
+
+        .members {
+            width: 100vw;
+            margin: 0 calc(50% - 50vw);
+            font-size: 1.5rem;
+            line-height: 1.75;
+        }
+
+        .members a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .member-profile {
+            display: grid;
+            column-gap: 4rem;
+            row-gap: 10px;
+            grid-template-columns: 200px auto;
+            line-height: 2.5;
+            font-size: 1.5rem;
+        }
+
+        .member-profile > div:nth-child(2) {
+            margin-top: -1rem;
+        }
+
+        .member-profile p {
+            margin-top: 0;
+        }
+
+        .member-profile img {
+            width: 100%;
+        }
+
+        .member-profile .link {
+            position: absolute;
+            bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .member-profile .link p {
+            margin: 0;
+        }
+
+        @media screen and (max-width: 900px) {
+            .member-profile {
+                display: block;
+                padding: 1rem;
+                line-height: 2.5;
+                font-size: 1rem;
+            }
+
+            .member-profile > div > p:nth-child(1) {
+                font-size: 1.5rem;
+                text-align: center;
+            }
+
+            .member-profile .link {
+                position: relative;
+            }
+
+            .member-profile img {
+                width: 100%;
+                padding: 50px 50px 10px;
+                box-sizing: border-box;
+            }
+
+            .member > p {
+                padding: 0 1rem;
+                font-size: 1rem;
+            }
+        }
+
+        .works {
+            margin-top: 120px;
+            display: grid;
+            column-gap: 3rem;
+            row-gap: 3rem;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .works div p {
+            margin: 0;
+        }
+
+        @media screen and (max-width: 900px) {
+            .works {
+                padding: 0 1rem;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .works div p {
+                font-size: 1rem;
+            }
+        }
+
+        .swiper-3d .swiper-slide-shadow-left {
+            background-image: linear-gradient(to left, rgba(255, 255, 255, .7), rgba(255, 255, 255, .7));
+        }
+
+        .swiper-3d .swiper-slide-shadow-right {
+            background-image: linear-gradient(to right, rgba(255, 255, 255, .7), rgba(255, 255, 255, .7));
+        }
+
+        .swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled {
+            opacity: 0;
+        }
+
+        .swiper-button-prev,
+        .swiper-button-next {
+            opacity: 1;
+            top: var(--swiper-navigation-top-offset, 20%);
+            color: #000;
+        }
+
+        .swiper-wrapper{transition-timing-function: ease-in-out; }
+
+        .lum-lightbox {
+            z-index: 10;
+        }
+
+        .lum-lightbox-inner img.lum-img {
+            max-width: 100%;
+        }
+
+        .swiper-button-prev, .swiper-rtl .swiper-button-next {
+            left: var(--swiper-navigation-sides-offset, 180px);
+            right: auto;
+        }
+
+        .swiper-button-next, .swiper-rtl .swiper-button-prev {
+            right: var(--swiper-navigation-sides-offset, 180px);
+            left: auto;
+        }
+
+        @media screen and (max-width: 900px) {
+            .swiper-button-prev, .swiper-rtl .swiper-button-next {
+                left: var(--swiper-navigation-sides-offset, 0);
+                top: var(--swiper-navigation-top-offset, 15%);
+                opacity: 0.2;
+                right: auto;
+            }
+
+            .swiper-button-next, .swiper-rtl .swiper-button-prev {
+                right: var(--swiper-navigation-sides-offset, 0);
+                top: var(--swiper-navigation-top-offset, 15%);
+                opacity: 0.2;
+                left: auto;
+            }
+        }
+
+        .lum-gallery-button {
+            display: none !important;
+        }
+
+        .relative {
+            position: relative;
+        }
+</style>
+</head>
+
+<body>
+    <div class="stickylogo">
+        <a href="index.html">
+            <img src="images/CASTO_logo_white_s.svg" alt="CASTO">
+        </a>
+    </div>
+    <div class="main">
+        <div class="content">
+            <div class="members swiper">
+                <div class="swiper-wrapper">
+                    <!-- -->
+                    <div class="member swiper-slide">
+                        <div class="member-profile">
+                            <div>
+                                <img src="images/mizuochi/member.jpg" alt="">
+                            </div>
+                            <div class="relative">
+                                <p>Masaru Mizuochi</p>
+                                <div class="link">
+                                    <p><a href="https://mizumasa.net/" target="_blank">https://mizumasa.net/ <i class="fa-solid fa-arrow-up-right-from-square"></i></a></p>
+                                    <p><a href="https://x.com/_mizumasa" target="_blank">https://x.com/_mizumasa <i class="fa-solid fa-arrow-up-right-from-square"></i></a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <p>エンジニア、商品企画、映像作家。自動撮影などの新しいカメラUXを実現する製品開発、アートの視点を取り入れた事業開拓を行う。</p>
+                        <p>個人でのアート制作や舞台演出などの活動から、文化庁メディア芸術祭、SXSW Art Program Finalists、SIGGRAPH Asia Art Galleryなど国内外の作品選歴多数。2018年CASTOを旗揚げ。</p>
+                        <p>2019年、品川の写真展「見えると変わる」を開催。</p>
+                        <div class="works">
+                            <div>
+                                <a href="images/mizuochi/JustBeDiverse.jpg" class="luminous">
+                                    <img src="images/mizuochi/JustBeDiverse.jpg" alt="作品A">
+                                    <p>CharActor(2018)</p>
+                                </a>
+                                <a href="images/mizuochi/zoe.jpg" class="luminous">
+                                    <img src="images/mizuochi/zoe.jpg" alt="作品A">
+                                    <p>ZOE(2021)</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- -->
+                    <!-- -->
+                    <div class="member swiper-slide">
+                        <div class="member-profile">
+                            <div>
+                                <img src="images/kamiya/member.jpg" alt="">
+                            </div>
+                            <div class="relative">
+                                <p>Taishi Kamiya</p>
+                                <div class="link">
+                                    <p><a href="https://taishikamiya.com/" target="_blank">https://taishikamiya.com/ <i class="fa-solid fa-arrow-up-right-from-square"></i></a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <p>デザインストラテジスト。Copenhagen Institute of Interaction Design(CIID)修了。</p>
+                        <p>ヤマハ株式会社にて音楽の新しい楽しみ方に関する研究開発からの新規事業開発や、
+                            共創施設運営や新規事業提案制度の設計などイノベーションマネジメントに従事。</p>
+                        <p>デザインコンサルティングを経て、コニカミノルタ株式会社において、コニカミノルタデザイン思考の体系化と社内浸透や、
+                            新価値事業創出スタジオenvisioning studioを立ち上げ推進後転職。現在は技術戦略に関わる。</p>
+                        <p>サウンドアーティストとして作品発表をする他、アート、デザイン、ビジネスの間をつなぐ方法論の研究と実践を行う。</p>
+                        <div class="works">
+                            <div>
+                                <a href="images/member_01_work_01.jpg" class="luminous">
+                                    <img src="images/member_01_work_01.jpg" alt="white balance(2020)">
+                                    <p>white balance(2020)</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- -->
+                    <!-- -->
+                    <div class="member swiper-slide">
+                        <div class="member-profile">
+                            <div>
+                                <img src="images/inoue/member.jpg" alt="">
+                            </div>
+                            <div class="relative">
+                                <p>Chisato Inoue</p>
+                                <div class="link">
+                                    <p><a href="https://www.instagram.com/chisato.iu" target="_blank">https://www.instagram.com/chisato.iu <i class="fa-solid fa-arrow-up-right-from-square"></i></a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <p>
+                            プランナー兼ビジネスプロデューサー。ヘッドホンやヘッドホン用アプリの商品企画を担当する傍ら、
+                            アーティストと共創しながら音のARやライブにおける、新規価値探索を実行中（ON PAROLE-細井美裕-/WONK's Sound Drive-WONK-など)。
+                            個人では、いけばな草月流師範として活動。桑沢デザイン研究所基礎造形専攻2023年卒業。
+                        </p>
+                        <div class="works">
+                            <div>
+                                <a href="images/member_02_work_01.png" class="luminous">
+                                    <img src="images/member_02_work_01.png" alt="作品A">
+                                    <p></p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- -->
+                    <!-- -->
+                    <div class="member swiper-slide">
+                        <div class="member-profile">
+                            <div>
+                                <img src="images/kurahashi/member.jpg" alt="">
+                            </div>
+                            <div class="relative">
+                                <p>Masaya Kurahashi</p>
+                                <div class="link">
+                                    <p><a href="https://kyabe.net/" target="_blank">https://kyabe.net/ <i class="fa-solid fa-arrow-up-right-from-square"></i></a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <p>STEAM教材のサービス企画、システム開発に従事。 個人活動では、2023年6月渋谷ヒカリエ8/にて、AIと 人間の共創の可能性を問う実験的ソフトウェア作品 「p5.CodingWithAI」を発表。</p>
+                        <div class="works">
+                            <div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- -->
+                    <!-- -->
+                    <div class="member swiper-slide">
+                        <div class="member-profile">
+                            <div>
+                                <img src="images/satoh/member.png" alt="">
+                            </div>
+                            <div class="relative">
+                                <p>Tetsuya Satoh</p>
+                                <div class="link">
+                                    <p><a href="https://yaba.me/" target="_blank">https://yaba.me/ <i class="fa-solid fa-arrow-up-right-from-square"></i></a></p>
+                                    <p><a href="https://x.com/satoh_sama4" target="_blank">https://x.com/satoh_sama4 <i class="fa-solid fa-arrow-up-right-from-square"></i></a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <p>クリエイティブディレクター。東京大学大学院 新領域創成科学研究科卒業。</p>
+                        <p>米国ウォルト・ディズニー・イマジニアリング社にて、ディズニーパークのアトラクション開発を歴任。</p>
+                        <p>現在は、最新テクノロジーを取り入れたメディアアートや、その場所が本来持つストーリーとコンセプトを重視した空間プロデュースを数多く手掛ける。直近事例は、ドバイ万博日本館の音響プロデュース／ディレクション(2021年)など</p>
+                        <div class="works">
+                            <div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- -->
+                    <!-- -->
+                    <div class="member swiper-slide">
+                        <div class="member-profile">
+                            <div class="relative">
+                                <p>Machiko Segawa</p>
+                                <div class="link">
+                                </div>
+                            </div>
+                        </div>
+                        <p>テクノロジーとアートの融合、アーティスト間のコミュニケーションに興味を持ち運営に参加。アートは初心者で、コミュニティで刺激を受ける日々。</p>
+                        <div class="works">
+                            <div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- -->
+                    <!-- -->
+                    <div class="member swiper-slide">
+                        <div class="member-profile">
+                            <div class="relative">
+                                <p>Masumi Kawano</p>
+                                <div class="link">
+                                </div>
+                            </div>
+                        </div>
+                        <p>UX/UIデザインを勉強中。</p>
+                        <p>チームビルディングなどのコミュニケーション設計やワークショップデザインを行う。</p>
+                        <div class="works">
+                            <div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- -->
+                    <!-- -->
+                    <div class="member swiper-slide">
+                        <div class="member-profile">
+                            <div class="relative">
+                                <p>Erina Gomi</p>
+                                <div class="link">
+                                </div>
+                            </div>
+                        </div>
+                        <p>カメラの顔認識機能開発を経て、インクルーシブデザイン手法を活用したスマホカメラのUI/UX開発を担当。多くの人が楽しめるユーザーインターフェースの提供に注力。声認識で読む絵本アプリの企画・実装、カメラアプリへのHapticsや効果音機能の実装、AR勉強会・写真展など、幅広く活動。本業の傍らオンライン大学でデジタルイラストレーションを学び、オリジナルキャラクター制作にも挑戦中。</p>
+                        <div class="works">
+                            <div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- -->
+                    <!-- -->
+                    <div class="member swiper-slide">
+                        <div class="member-profile">
+                            <div class="relative">
+                                <p>Hiroshi Takeda</p>
+                                <div class="link">
+                                </div>
+                            </div>
+                        </div>
+                        <p>SIerでの経験を経て、ソフトウェアの品質向上活動、組み込みソフト、社内システム、B2C Webサービスなどの開発に従事。その中でより価値のあるソフトウェアを作るためには「人」に着目する必要があると感じUXやワークショップなどデザインの分野へ進む。業務の傍ら学生として大学でアートの分野についても学んでいる。</p>
+                        <div class="works">
+                            <div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- -->
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // =============================================
+        new LuminousGallery(
+            document.querySelectorAll(".luminous"), { arrowNavigation: true }
+            , { caption: function(trigger) {
+                return trigger.querySelector("img").getAttribute("alt");
+            }
+        });
+
+        // =============================================
+        let breakPoint = 600;
+        let swiper;
+
+        function createSwiper() {
+            if (breakPoint < window.innerWidth) {
+                swiper = new Swiper(".swiper", {
+                    initialSlide: initialSlide,
+                    pagination: {
+                        el: ".swiper-pagination"
+                    },
+                    effect: "coverflow",
+                    grabCursor: true,
+                    centeredSlides: true,
+                    slidesPerView: "2",
+                    loop: false,
+                    coverflowEffect: {
+                        rotate: 10,
+                        stretch: 0,
+                        depth: 10,
+                        modifier: 1,
+                        scale: 0.8,
+                        slideShadows: true
+                    },
+                    navigation: {
+                        nextEl: ".swiper-button-next",
+                        prevEl: ".swiper-button-prev"
+                    },
+                    loop: true,
+                    keyboard: true,
+                    speed: 500
+                });
+            }
+            else {
+                swiper = new Swiper(".swiper", {
+                    initialSlide: initialSlide,
+                    loop: true, // ループ
+                    slidesPerView: 1, // 一度に表示する枚数
+                    spaceBetween: 30, // スライド間の距離
+                    centeredSlides: true, // アクティブなスライドを中央にする
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: ".swiper-button-next",
+                        prevEl: ".swiper-button-prev",
+                    },
+                });
+            }
+        }
+
+        function getUrlQueries() {
+            let queryStr = window.location.search.slice(1);
+            let queries = {};
+                
+            if (!queryStr) {
+                return null;
+            }
+            
+            queryStr.split('&').forEach(function(queryStr) {
+                var queryArr = queryStr.split('=');
+                queries[queryArr[0]] = queryArr[1];
+            });
+            
+            return queries;
+        }
+
+        let queries = getUrlQueries();
+        let initialSlide = 0;
+        if(queries && 'm' in queries && typeof queries.m == 'string' && queries.m.length!=0 && !isNaN(Number(queries.m))){
+            initialSlide = queries.m - 1
+        }
+
+        createSwiper();
+
+        // for page transition
+        const body = document.querySelector("body");
+        body.style.opacity = 1;
+    </script>
+</body>
+
+</html>
