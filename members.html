@@ -107,6 +107,11 @@
             margin: 0;
         }
 
+        .member > p {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
         @media screen and (max-width: 900px) {
             .member-profile {
                 display: block;
@@ -133,6 +138,7 @@
             .member > p {
                 padding: 0 1rem;
                 font-size: 1rem;
+                line-height: 2;
             }
         }
 
@@ -146,6 +152,7 @@
 
         .works div p {
             margin: 0;
+            font-size: 1.1rem;
         }
 
         @media screen and (max-width: 900px) {
@@ -155,7 +162,7 @@
             }
 
             .works div p {
-                font-size: 1rem;
+                font-size: 0.9rem;
             }
         }
 
@@ -221,6 +228,13 @@
         .relative {
             position: relative;
         }
+
+        @media (prefers-color-scheme: dark) {
+            .members a,
+            .works div p {
+                color: #fff;
+            }
+        }
 </style>
 </head>
 
@@ -248,9 +262,8 @@
                                 </div>
                             </div>
                         </div>
-                        <p>エンジニア、商品企画、映像作家。自動撮影などの新しいカメラUXを実現する製品開発、アートの視点を取り入れた事業開拓を行う。</p>
-                        <p>個人でのアート制作や舞台演出などの活動から、SXSW Art Program Finalists、SIGGRAPH Asia Art Gallery、文化庁メディア芸術祭など国内外の作品選歴多数。2018年CASTOを旗揚げ。</p>
-                        <p>2019年、品川の写真展「見えると変わる」を開催。</p>
+                        <p>エンジニア、商品企画、映像作家。自動撮影などの新しいカメラUXを実現する技術開発、アートの視点を取り入れた事業開拓を行う。</p>
+                        <p>演劇・映像的な見立てを得意とし、SXSW Art Program Finalists、SIGGRAPH Asia Art Gallery、文化庁メディア芸術祭、WIRED Creative Hack Award など国内外の作品選歴多数。2018年CASTOを旗揚げ。</p>
                         <div class="works">
                             <div>
                                 <a href="images/mizuochi/JustBeDiverse.jpg" class="luminous">

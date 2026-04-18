@@ -233,6 +233,15 @@
             padding-bottom: 5rem;
         }
 
+        /* Members section only: show 5 cards per row on desktop */
+        #members + .members {
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 2rem;
+            row-gap: 5rem;
+            padding-left: 0;
+            padding-top: 5rem;
+        }
+
         .members .card {
             height: 0;
             padding-bottom: 100%;
@@ -245,15 +254,16 @@
 
         .members .card img {
             width: 100%;
-            opacity: 1;
+            opacity: 0.72;
+            transition: opacity 0.35s ease;
         }
 
         .members .card a {
             text-decoration: none;
         }
 
-        .members .card a:hover {
-            opacity: 0.7;
+        .members .card a:hover img {
+            opacity: 1;
         }
 
         .members .card p.phrase {
@@ -280,7 +290,7 @@
         }
 
         .members .card div p:nth-child(1) {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             width: 90%;
         }
 
@@ -296,6 +306,11 @@
                 gap: 1rem;
                 row-gap: 6rem;
                 padding-left: 0;
+            }
+
+            #members + .members {
+                grid-template-columns: 1fr 1fr 1fr;
+                padding-top: 0;
             }
 
             .members .card div p:nth-child(1) {
@@ -341,7 +356,7 @@
         }
 
         .sns-icon img {
-            width: 50px !important;
+            width: 40px !important;
             position: relative !important;
             display: inline;
             margin-right: 2rem;
@@ -365,7 +380,7 @@
         }
 
         .contact img {
-            width: 260px;
+            width: 150px;
         }
 
         .contact div p {
@@ -449,6 +464,12 @@
 
         .footer {
             width: 100%;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .contents .subtitle2 {
+                color: #fff;
+            }
         }
     </style>
 
